@@ -134,5 +134,5 @@ let item = selectItem.map(menu => {
 for (const key of item){
   option[key] = {}
 }
-
+console.log(item)
 export { selectItem, option, item };

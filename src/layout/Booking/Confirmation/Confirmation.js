@@ -122,9 +122,8 @@ const ParkingTicket = ({ Data }) => {
 
 const Confirmation = () => {
   const { Data } = useContext(context);
-  
-    if (!Data) return <Navigate to={"/book/extras"}/>
-
+ 
+    if (!Data) return <Navigate to={"/book/extras"} replace={true}/>
     return (
         <>
             <Breadcumps Items={Items}/>

@@ -77,6 +77,7 @@ const Card = ({ children }) => {
 const ButtonDonwloadInvoice = ({ children }) => {
   const handleClick = () => {
     console.log("Hello world")
+    window.scrollTo(0, 0);
   }
   return (
     <button onClick={handleClick} style={{"width":"100%", "backgroundColor":"#1BB273","border":"none"}} className={"mybg-primary fs-small text-light rounded-3 py-3 mt-3"}>
@@ -89,7 +90,7 @@ const ButtonToBook = ({ children, Send, Form }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     Send(Form);
-    navigate("/book/confirmation")
+    navigate("/book/confirmation");
 }
   return (
       <button onClick={handleClick} style={{"width":"100%", "backgroundColor":"none","border":"none"}} className={"mybg-primary fs-small text-light rounded-3 py-3 mt-3"}>

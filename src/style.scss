@@ -70,11 +70,17 @@ li {
 }
 
 .border-form-radio {
-    border: 2px solid rgb(194, 194, 194);
+    border: 2px solid #c2c2c2;
 }
 
 .border-form {
     border: 2px solid rgb(194, 194, 194);
+}
+
+.border-form-check {
+    @media screen and (max-width: 799px) {
+        border: 2px solid #4B2AF4;
+    }
 }
 
 body {

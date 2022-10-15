@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import arrowUp from "../../assets/images/arrowup2.png"
-import arrowDown from "../../assets/images/arrowdown2.png";
+// import arrowUp from "../../assets/images/arrowup2.png"
+// import arrowDown from "../../assets/images/arrowdown2.png";
 import checkIcon from "../../assets/images/checklist.png";
 import { context } from "../../useContext";
 import { item } from "./selectItem";
 import Select from "./Select";
+import "../../style.css"
 import Date from "./Date";
 
 
@@ -12,9 +13,6 @@ import Date from "./Date";
 const Form = ({ Form, Setform }) => {
     const [open, setOpen] = useState(false);
     const [count,setCount] = useState(0)
-    const { Reservation } = useContext(context)
-
-
 
     const Ref = useRef();
     let initialState = [];
@@ -36,11 +34,14 @@ const Form = ({ Form, Setform }) => {
 
     useEffect(() => {
       console.log(Form);
+      setTimeout(() => {
+        Ref.current.classList.add("form-open")
+      }, 1500)
     })
     return (
       <div ref={Ref} className={"form d-flex flex-column"}>
         <div className={"d-flex justify-content-center my-4"}>
-          <button
+          {/* <button
             style={{"outline":"none"}}
             className={"mybutton py-3 text-center rounded-4 d-none justify-content-center align-items-center"}
             onClick={() => {
@@ -51,7 +52,7 @@ const Form = ({ Form, Setform }) => {
                Read more
             </span>
             <img src={open?arrowUp:arrowDown} width={"18"}/>
-          </button>
+          </button> */}
           <br />
         </div>
         <form className={"mt-3"}>

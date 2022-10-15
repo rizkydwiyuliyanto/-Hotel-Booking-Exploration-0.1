@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./style.css";
 
 
@@ -11,11 +12,12 @@ const Section = ({ children }) => {
     )
 }
 
+
 const Book = () => {
   return (
     <>
       <Section>
-        <Outlet />
+          <Outlet />
       </Section>
     </>
   );
