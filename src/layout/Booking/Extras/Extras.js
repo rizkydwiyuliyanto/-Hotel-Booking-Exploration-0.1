@@ -6,6 +6,8 @@ import Reservation from "../../../Components/Reservation/Reservation";
 import Breadcumps from "../Breadcumps";
 import { Items } from "./Breadcumps/Items";
 import Card from "../../../Components/Card/Card"
+import { option } from "../../../Components/Form/selectItem";
+
 
 
 const Content = ({ children }) => {
@@ -23,21 +25,9 @@ const Extras = () => {
     email: "",
     phone: "",
     countryPhoneCode:"",
-    option: {
-      carpark: {
-        // vehicleType:"",
-        // placeType:""
-
-      },
-      bottleOfWine:{
-        // product: ""
-
-      },
-      stayOfPet: {
-        // location: ""
-      }
-    }
-  })
+    option
+  });
+  
   return (
     <>
       <Breadcumps Items={Items}/>

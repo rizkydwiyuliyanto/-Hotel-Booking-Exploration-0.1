@@ -97,9 +97,7 @@ const selectItem =
                   price: "50",
                   imgUrl: bottle,
                   imgUrl2: bottle2
-                },
-                
-                
+                },  
           ]
         },
       ],
@@ -125,9 +123,16 @@ const selectItem =
           ]
         },
       ],
-    }
+    },
+    
   ]
 
+const option = {};
+let item = selectItem.map(menu => {
+  return menu.id
+})
+for (const key of item){
+  option[key] = {}
+}
 
-
-export { selectItem };
+export { selectItem, option, item };
