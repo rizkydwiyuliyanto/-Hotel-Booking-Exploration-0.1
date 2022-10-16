@@ -68,7 +68,7 @@ const Form = ({ Form, Setform }) => {
             <div className={"mb-3 d-flex flex-column col-xl-6"}>
               <label className={"mb-2 fs-small text-secondary"}>FIRST NAME *</label>
               <div ref={el=>Ref.current[0] = el} datatype={"firstName"} className={"rounded-2 position-relative p-2 input d-flex align-items-center justify-content-between"}>
-                <input onChange={handleChange} datatype={"firstName"} name={"firstName"} style={{"border":"none", "outline":"none"}}  className={"col-11 ps-3 rounded-2"} value={Form.firstName} required/>
+                <input onChange={handleChange} datatype={"firstName"} name={"firstName"} style={{"border":"none", "outline":"none"}}  className={"col-md-11 col-10 ps-0 ps-md-3 rounded-2"} value={Form.firstName} required/>
                 <div style={{"right":"0"}} className={"d-flex col-1 justify-content-center align-items-center"}>
                     {Form.firstName?<img src={checkIcon} width={"22"}/>:""}
                 </div>
@@ -77,7 +77,7 @@ const Form = ({ Form, Setform }) => {
             <div className={"mb-3 d-flex flex-column col-xl-6"}>
               <label className={"mb-2 fs-small text-secondary"}>LAST NAME *</label>
               <div ref={el=>Ref.current[1] = el} datatype={"lastName"} className={"rounded-2 position-relative p-2 input d-flex align-items-center justify-content-between"}>
-                <input datatype={"lastName"} onChange={handleChange} name={"lastName"} style={{"border":"none", "outline":"none"}}  className={"col-11 ps-3 rounded-2"} value={Form.lastName} required/>
+                <input datatype={"lastName"} onChange={handleChange} name={"lastName"} style={{"border":"none", "outline":"none"}}  className={"col-md-11 col-10 ps-0 ps-md-3 rounded-2"} value={Form.lastName} required/>
                 <div style={{"right":"0"}} className={"d-flex col-1 justify-content-center align-items-center"}>
                     {Form.lastName?<img src={checkIcon} width={"22"}/>:""}
                 </div>
@@ -86,7 +86,7 @@ const Form = ({ Form, Setform }) => {
             <div className={"mb-3 d-flex flex-column col-xl-6"}>
               <label className={"mb-2 fs-small text-secondary"}>EMAIL ADDRESS *</label>
               <div ref={el=>Ref.current[2] = el} datatype={"email"} className={"rounded-2 position-relative p-2  input d-flex align-items-center justify-content-between"}>
-                <input datatype={"email"} onChange={handleChange} name={"email"} style={{"border":"none", "outline":"none"}}  className={"col-11 ps-3 rounded-2"} value={Form.email} required/>
+                <input datatype={"email"} onChange={handleChange} name={"email"} style={{"border":"none", "outline":"none"}}  className={"col-md-11 col-10 ps-0 ps-md-3 rounded-2"} value={Form.email} required/>
                 <div style={{"right":"0"}} className={"d-flex col-1 justify-content-center align-items-center"}>
                     {Form.email?<img src={checkIcon} width={"22"}/>:""}
                 </div>
@@ -96,13 +96,13 @@ const Form = ({ Form, Setform }) => {
             <div className={"mb-3 d-flex flex-column col-xl-6"}>
               <label className={"mb-2 fs-small text-secondary"}>PHONE NUMBER *</label>
               <div ref={el=>Ref.current[3] = el} datatype={"phone"} className={"rounded-2 d-flex p-2 align-items-center position-relative input overflow-hidden"}>
-                <select datatype={"phone"} ref={SelectRef} style={{"height":"100%","color":Form.countryPhoneCode?"black":"grey"}} className={"select-phone d-flex justify-content-center col-2"} onChange={handleChange} name={"countryPhoneCode"} required>
+                <select datatype={"phone"} ref={SelectRef} style={{"height":"100%","color":Form.countryPhoneCode?"black":"grey"}} className={"select-phone d-flex justify-content-center col-3 col-md-2"} onChange={handleChange} name={"countryPhoneCode"} required>
                   <option value={""}></option>
                   <option value={"+62"}>+62</option>
                   <option value={"+48"}>+48</option>
                 </select>
-                <input  type={"number"} datatype={"phone"} onChange={handleChange} style={{"height":"100%", "border":"none", "outline":"none"}} name={"phone"} className={"col-9 input-number ms-auto ps-3 rounded-end"} value={Form.phone} required/>
-                <div className={"d-flex col-1 justify-content-center align-items-center"}>
+                <input  type={"number"} datatype={"phone"} onChange={handleChange} style={{"border":"none", "outline":"none"}} name={"phone"} className={"col-7 col-md-9 input-number ms-auto ps-3 rounded-end"} value={Form.phone} required/>
+                <div className={"d-flex col-md-1 col-2 justify-content-center align-items-center"}>
                     {Form.countryPhoneCode && Form.phone?<img src={checkIcon} width={"22"}/>:""}
                 </div>
               </div>
