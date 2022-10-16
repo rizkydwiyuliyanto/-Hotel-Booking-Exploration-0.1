@@ -102,7 +102,7 @@ const Form = ({ Form, Setform }) => {
                   <option value={"+48"}>+48</option>
                 </select>
                 <input  type={"number"} datatype={"phone"} onChange={handleChange} style={{"border":"none", "outline":"none"}} name={"phone"} className={"col-7 col-md-9 input-number ms-auto ps-3 rounded-end"} value={Form.phone} required/>
-                <div className={"d-flex col-md-1 col-2 justify-content-center align-items-center"}>
+                <div className={"d-flex col-md-1 col-2 justify-content-end align-items-center"}>
                     {Form.countryPhoneCode && Form.phone?<img src={checkIcon} width={"22"}/>:""}
                 </div>
               </div>
