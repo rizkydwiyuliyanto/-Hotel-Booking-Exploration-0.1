@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { context } from "../../useContext";
 import calendar from "../../assets/images/calendar.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useMatch } from "react-router-dom";
 
 const Checkin = ({ Reservation }) => {
 
@@ -43,25 +43,38 @@ const Checkin = ({ Reservation }) => {
     );
 }
 
-const PriceSummary = () => {
+const PriceSummary = ({ Extras }) => {
   return (
     <div className={"mt-2 fs-small"}>
-      <div className={"d-flex justify-content-between"}>
+      <div className={"d-flex mb-1 justify-content-between"}>
         <span>Rooms and offer:</span>
         <span className={"fw-bold"}>$625.43</span>
       </div>
-      <div className={"d-flex justify-content-between"}>
+      {Extras?
+      <div className={"d-flex mb-1 justify-content-between"}>
+        <span>Extras:</span>
+        <span className={"fw-bold"}>${Extras}</span>
+      </div>
+      :""}
+      <div className={"d-flex mb-1 justify-content-between"}>
         <span>8 % VAT:</span>
         <span className={"fw-bold"}>$50.03</span>
       </div>
-      <div className={"d-flex justify-content-between"}>
+      <div className={"d-flex mb-2 justify-content-between"}>
         <span>City tax:</span>
         <span className={"fw-bold"}>$16.44</span>
       </div>
-      <div style={{"color":"#1BB273"}} className={"fs-normal fw-bold d-flex justify-content-between"}>
+      {Extras?
+      <div style={{"color":"#1BB273"}} className={"fs-normal mb-2 fw-bold d-flex justify-content-between"}>
+          <span>Total Price</span>
+          <span className={"fw-bold"}>$788.87</span>
+      </div>
+      :
+      <div style={{"color":"#1BB273"}} className={"fs-normal mb-2 fw-bold d-flex justify-content-between"}>
         <span>Total Price</span>
         <span className={"fw-bold"}>$698.87</span>
       </div>
+      }
     </div>
   )
 }
@@ -99,7 +112,7 @@ const ButtonToBook = ({ children, Send, Form }) => {
   )
 }
 
-const Reservation = ({ Form }) => {
+const Reservation = ({ Form, Extras }) => {
   const { Reservation, Send } = useContext(context);
   const location = useLocation();
   
@@ -108,7 +121,7 @@ const Reservation = ({ Form }) => {
         <span className={"fw-bold fs-medium"}>Reservation summary</span>
         <Checkin Reservation={Reservation} />
         <span className={"fw-bold fs-medium"}>Your Price summary</span>
-        <PriceSummary />
+        <PriceSummary Extras={ Extras }/>
         {location.pathname === "/book/confirmation" ? (
           <ButtonDonwloadInvoice>
             Download Invoice

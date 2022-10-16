@@ -63,15 +63,7 @@ li {
 
 .border-form-radio-check {
   border: 2px solid #4B2AF4;
-  display: grid;
-  place-items: center;
-}
-.border-form-radio-check::before {
-  content: "";
-  border-radius: 10px;
-  width: calc(100% + 35px);
-  height: calc(100% + 10px);
-  border: 2.8px solid #E3DBFD;
+  outline: 3px solid #E3DBFD;
 }
 
 .border-form-radio {
@@ -120,13 +112,20 @@ body {
   color: #4B2AF4;
 }
 
-.color {
-  color: red;
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
-@media screen and (max-width: 1439px) {
-  .color {
-    color: blue;
-  }
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
 }
 
 .btn11 {
@@ -227,8 +226,9 @@ body {
 .nav-section-mobile .nav-items-mobile {
   position: fixed;
   top: 0;
-  width: 0;
-  left: 0;
+  width: 100%;
+  left: -100%;
+  transition: left 600ms ease;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -244,96 +244,28 @@ body {
   display: flex;
   width: 45%;
   flex-direction: column;
-  opacity: 0;
+  opacity: 1;
+}
+.nav-section-mobile .nav-items-mobile ul .nav-active {
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 8px;
 }
 .nav-section-mobile .nav-items-mobile ul li {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5em;
+  border: 2px solid rgb(255, 255, 255);
 }
 .nav-section-mobile .open-nav-items {
-  -webkit-animation: test 0.5s forwards ease;
-          animation: test 0.5s forwards ease;
-}
-.nav-section-mobile .open-nav-items ul {
-  -webkit-animation: item1 2.5s forwards ease;
-          animation: item1 2.5s forwards ease;
+  left: 0;
 }
 .nav-section-mobile .close-nav-items {
-  -webkit-animation: test2 0.5s forwards ease;
-          animation: test2 0.5s forwards ease;
-}
-.nav-section-mobile .close-nav-items ul {
-  -webkit-animation: item2 0.15s forwards ease;
-          animation: item2 0.15s forwards ease;
+  left: -100%;
 }
 
-@-webkit-keyframes item1 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes item1 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes item2 {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes item2 {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes test {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@keyframes test {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@-webkit-keyframes test2 {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
-  }
-}
-@keyframes test2 {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
-  }
-}
 .nav-section {
   position: fixed;
   width: 100%;
@@ -397,30 +329,27 @@ body {
   font-weight: bold;
   font-size: var(--fs-medium);
 }
-.nav-parent .nav-active {
-  border: 2px solid #4B2AF4;
-  padding: 0.2em 1em;
-  text-align: center;
-  border-radius: 14px;
-}
-.nav-parent .nav-active span {
-  margin-right: 0em;
-}
 .nav-parent .nav-items {
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  justify-content: center;
+  width: 75%;
   align-items: center;
 }
-.nav-parent .nav-items li {
-  list-style-type: none;
+.nav-parent .nav-items .nav-active {
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 8px;
 }
-.nav-parent .nav-items li span {
-  margin-right: 0.5em;
+.nav-parent .nav-items li {
+  padding: 0 0.9em;
+  margin: 0 0.5em;
+  border: 2px solid #FFFFFF;
+  text-align: center;
+  list-style-type: none;
 }
 @media screen and (max-width: 1439px) {
   .nav-parent .nav-items {
-    width: 60%;
+    width: 65%;
   }
 }
 .nav-parent .nav-login {
@@ -647,6 +576,9 @@ body {
   border: none;
   box-shadow: 1px 2px 4px 4px rgb(194, 194, 194);
 }
+.card-1 .form .phone-code {
+  border: 1px solid blue;
+}
 .card-1 .form .input {
   position: relative;
   border: 2px solid rgb(156, 156, 156);
@@ -663,6 +595,24 @@ body {
   transform: translate(-50%, -50%);
   width: calc(100% + 20px);
   height: calc(100% + 20px);
+}
+.card-1 .form .input-select-active {
+  position: relative;
+  outline: 2.8px solid #E3DBFD;
+  border: 2px solid #9b88f8;
+}
+.card-1 .form .select-phone {
+  background-color: white;
+  position: absolute;
+  text-align: center;
+  padding: 0 0.3em;
+  border: none;
+}
+.card-1 .form .input-select {
+  position: absolute;
+  right: 0;
+  outline: none;
+  border: none;
 }
 .card-1 .form-close {
   bottom: 20%;

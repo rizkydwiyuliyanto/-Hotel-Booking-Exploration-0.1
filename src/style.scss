@@ -58,15 +58,9 @@ li {
 
 .border-form-radio-check {
     border: 2px solid #4B2AF4;
-    display: grid;
-    place-items: center;
-    &::before{
-        content: "";
-        border-radius: 10px;
-        width: calc(100% + 35px);
-        height: calc(100% + 10px);
-        border: 2.8px solid #E3DBFD;
-    }
+    // display: grid;
+    // place-items: center;
+    outline: 3px solid #E3DBFD;
 }
 
 .border-form-radio {
@@ -114,14 +108,19 @@ body {
 .color-primary{
     color: #4B2AF4;
 }
+ 
 
-.color {
-    color: red;
-
-    @media screen and (max-width: 1439px) {
-        color: blue;
+input[type=number] {
+    appearance: textfield;
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
     }
-}
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+  }
 
 @mixin myContainer {
     width: 1440px;
@@ -131,6 +130,11 @@ body {
         width: 80%;
     }
 }
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+} 
 
 @mixin flex_between {
     display: flex;
@@ -317,8 +321,9 @@ $color: #b3e5fc;
     .nav-items-mobile {
         position: fixed;
         top:0;
-        width: 0;
-        left: 0;
+        width: 100%;
+        left: -100%;
+        transition: left 600ms ease;
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -333,59 +338,27 @@ $color: #b3e5fc;
             display: flex;
             width: 45%;
             flex-direction: column;
-            opacity: 0;
+            opacity: 1;
+            .nav-active {
+                border: 2px solid black;
+                text-align: center;
+                border-radius: 8px;
+            }
             li {
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
-
+                padding: 0.5em;
+                border: 2px solid rgb(255, 255, 255);
             }
         }
     }
     .open-nav-items {
-        animation: test 0.5s forwards ease;
-        ul {
-            animation: item1 2.5s forwards ease;
-        }
+        left:0;
     }
     .close-nav-items {
-        animation: test2 0.5s forwards ease;
-        ul {
-            animation: item2 0.15s forwards ease;
-        }
-    }
-}
-
-@keyframes item1 {
-    from {
-        opacity: 0;
-    }to {
-        opacity: 1;
-    }
-}
-
-@keyframes item2 {
-    from {
-        opacity: 1;
-    }to {
-        opacity: 0;
-    }
-}
-
-@keyframes test {
-    from {
-        width: 0;
-    }to {
-        width: 100%;
-    }
-}
-
-@keyframes test2 {
-    from {
-        width: 100%;
-    }to {
-        width: 0;
+        left: -100%;
     }
 }
 
@@ -429,32 +402,27 @@ $color: #b3e5fc;
         }
     }
 
-    .nav-active {
-        border: 2px solid #4B2AF4;
-        padding: 0.2em 1em;
-        text-align: center;
-        border-radius: 14px;
 
-        span {
-            margin-right: 0em;
-        }
-    }
 
     .nav-items {
-        @include flex_between();
-        width: 50%;
+        @include flex_center();
+        width: 75%;
         align-items: center;
+        .nav-active {
+            border: 2px solid black;
+            text-align: center;
+            border-radius: 8px;
+        }
         li {
-           
+            //  width: 100px;
+            padding: 0 0.9em;
+            margin: 0 0.5em;
+            border: 2px solid #FFFFFF;
+            text-align: center;
             list-style-type: none;
-            span {
-                margin-right: 0.5em;
-            }
-
-
         }
         @media screen and (max-width: 1439px) {
-            width: 60%;
+            width: 65%;
         }
     }
 
@@ -604,6 +572,10 @@ $color: #b3e5fc;
             border: none;
             box-shadow: 1px 2px 4px 4px rgb(194, 194, 194);
         }
+        .phone-code {
+            border: 1px solid blue;
+           
+        }
         .input {
             position: relative;
             border: 2px solid rgb(156, 156, 156);
@@ -620,6 +592,26 @@ $color: #b3e5fc;
                     height: calc(100% + 20px);;
                 }
             }
+        }
+        .input-select-active {
+            position: relative;
+            outline: 2.8px solid #E3DBFD;
+            border: 2px solid #9b88f8;
+        }
+        .select-phone {
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            padding: 0 0.3em;
+            border: none;
+            // border: 1px solid red;
+        }
+        .input-select {
+            position: absolute;
+            right:0;
+            outline: none;
+            // border: 2px solid red;
+            border: none;
         }
     }
     .form-close {

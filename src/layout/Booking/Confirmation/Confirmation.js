@@ -135,7 +135,7 @@ const Confirmation = () => {
                       <ParkingTicket Data={ Data }/>
                     </div>
                 </Card>
-                <Reservation/>
+                <Reservation Extras={"90.00"}/>
             </Content>  
         </>
     )

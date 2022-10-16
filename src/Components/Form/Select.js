@@ -130,8 +130,9 @@ const Select = ( { Select, Setselect, Setcount, Form, Setform } ) => {
                                             <div className={"fs-small flex-column justify-content-center d-flex align-items-center"}>
                                                 <span className={"fs-small fw-bold mt-2"}>{y.name}</span><br/>
                                                 <div className={"d-flex"}>
-                                                    <span className={"fw-bold color-primary"}>${y.price}</span>
-                                                    <span className={"text-secondary"}>/night</span>
+                                                  {y.price?<> <span className={"fw-bold color-primary"}>${y.price}</span>
+                                                    <span className={"text-secondary"}>/night</span></>:""}
+                                                   
                                                 </div>
                                             </div>
                                 </div>

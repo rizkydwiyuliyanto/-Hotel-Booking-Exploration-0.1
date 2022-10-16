@@ -19,8 +19,8 @@ const someComp = (key,url, page) => {
   const location = useLocation().pathname
   const match = useMatch(url);
   return (
-    <li key={key} className={"m-0  list fs-normal"}>
-      <Link className={match||location.includes(url)?"nav-active":""} style={{"textDecoration":"none","color":match||location.includes(url)?"#4B2AF4":"black"}} to={url}>{page}</Link>
+    <li key={key} className={`${match||location.includes(url)?"nav-active":""}`}>
+      <Link style={{"textDecoration":"none","color":"black"}} to={url}>{page}</Link>
       {page === "Book" ? <></> : <img className={"ms-2"} src={arrowDown} width={"12px"} />}
     </li>
   );
